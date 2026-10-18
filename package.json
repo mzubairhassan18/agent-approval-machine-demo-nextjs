@@ -1,0 +1,36 @@
+{
+  "name": "agent-approval-machine-demo-nextjs",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Ten real-world human-in-the-loop approval flows on agent-approval-machine, built with Next.js and shadcn/ui.",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.4",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "agent-approval-machine": "file:D:/framework/_pkgs/agent-approval-machine-0.1.0.tgz",
+    "clsx": "^2.1.1",
+    "next": "^15.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "jsdom": "^26.0.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.7"
+  }
+}
