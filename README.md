@@ -11,6 +11,8 @@ so React users get the polished version by owning the code rather than installin
 **The published package contains no JSX, no components and no CSS.** Radix and Tailwind live here,
 in this demo.
 
+**Live: https://mzubairhassan18.github.io/agent-approval-machine-demo-nextjs/**
+
 ## The ten flows
 
 Same data and same flags as the [vanilla demo](https://mzubairhassan18.github.io/agent-approval-machine/),
