@@ -398,16 +398,25 @@ export function createGenericAdapter(useCase: DemoUseCase): ApprovalAdapter<Demo
   };
 }
 
-/** The fake provider behind every use case: slow, partial, and honest about it. */
-export function createExecutor(useCase: DemoUseCase) {
+/**
+ * The fake provider behind every use case: slow, partial, and honest about it.
+ * Like the shared executors in `mock-executors.ts`, an item fails its first
+ * attempt and then goes through — so "Retry 1 failed" actually recovers, which
+ * is what the failure messages promise.
+ */
+export function createExecutor(useCase: DemoUseCase, failedOnce: Set<string>) {
   return async (batch: DemoItem[]) => {
     await new Promise((resolve) => setTimeout(resolve, 700 + batch.length * 260));
     const succeeded: DemoItem[] = [];
     const failed: { item: DemoItem; error: string }[] = [];
     for (const item of batch) {
       const error = useCase.fail?.[item.id];
-      if (error) failed.push({ item, error });
-      else succeeded.push(item);
+      if (error && !failedOnce.has(item.id)) {
+        failedOnce.add(item.id);
+        failed.push({ item, error });
+      } else {
+        succeeded.push(item);
+      }
     }
     return { succeeded, failed };
   };

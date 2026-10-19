@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 import { ApprovalDialog, Badge, Button } from "@/src/ui";
 
@@ -23,13 +23,16 @@ export function UseCaseSection({ index, useCase }: { index: number; useCase: Dem
   const [arrivals, setArrivals] = useState(0);
 
   const adapter = useMemo(() => createGenericAdapter(useCase), [useCase]);
-  const onExecute = useMemo(() => createExecutor(useCase), [useCase]);
+  // Which items have already burned their one failing attempt (see createExecutor).
+  const failedOnce = useRef(new Set<string>());
+  const onExecute = useMemo(() => createExecutor(useCase, failedOnce.current), [useCase]);
 
   const onUndo = useCallback(async () => {
     await new Promise((resolve) => setTimeout(resolve, 260));
   }, []);
 
   const reset = useCallback(() => {
+    failedOnce.current.clear();
     setArrivals(0);
     setItems(useCase.items.map((item) => ({ ...item })));
   }, [useCase]);
