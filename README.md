@@ -13,6 +13,9 @@ in this demo.
 
 **Live: https://mzubairhassan18.github.io/agent-approval-machine-demo-nextjs/**
 
+> Changing this UI, or how it deploys? [`notes/PROJECTS.md`](https://github.com/mzubairhassan18/agent-approval-machine/blob/main/notes/PROJECTS.md)
+> in the library repo maps all four repos and names the file to open for each kind of change.
+
 ## The ten flows
 
 Same data and same flags as the [vanilla demo](https://mzubairhassan18.github.io/agent-approval-machine/),
