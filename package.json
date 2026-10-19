@@ -15,7 +15,7 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.4",
     "@radix-ui/react-dialog": "^1.1.6",
-    "agent-approval-machine": "file:D:/framework/_pkgs/agent-approval-machine-0.1.0.tgz",
+    "agent-approval-machine": "^0.1.0",
     "clsx": "^2.1.1",
     "next": "^15.5.0",
     "react": "^19.0.0",
