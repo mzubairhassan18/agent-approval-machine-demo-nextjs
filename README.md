@@ -36,10 +36,24 @@ held as `queued`, then released when the batch settles, instead of being lost.
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
+npm run dev          # http://localhost:3000
 npm run build
-npm test           # the moved React suite: machine, hook and UI
+npm test             # the moved React suite: machine, hook and UI
 ```
+
+## Where the live demo comes from
+
+This repo has no CI and no external host. `npm run build:pages` builds the static export and
+writes it to `docs/`, which GitHub Pages serves (source: `main`, `/docs`):
+
+```bash
+npm run build:pages
+git add docs && git commit -m "chore: rebuild pages" && git push
+```
+
+The site is served from a subpath (`/<repo>/`), so the build bakes in
+`basePath: "/agent-approval-machine-demo-nextjs"`. The script also writes `docs/.nojekyll` —
+without it, Pages' Jekyll step silently drops `_next/` and the page loads with no JavaScript.
 
 ## How it uses the package
 
